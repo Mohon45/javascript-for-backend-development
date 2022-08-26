@@ -31,68 +31,85 @@
 // console.log(result);
 
 // row node js dia amader first server create kora
-const http = require("http");
-const url = require("url");
-const fs = require("fs");
+// const http = require("http");
+// const url = require("url");
+// const fs = require("fs");
 
-const server = http.createServer((req, res) => {
-  // res.end("Hello Node.JS");
-  // if (req.url == "/") {
-  //   res.writeHead(200, { "Content-Type": "text/html" });
-  //   res.write("<p> This is Home Page. <p/>");
-  //   res.end();
-  // } else if (req.url == "/contact") {
-  //   res.writeHead(200, { "Content-Type": "text/html" });
-  //   res.write("<p> This is Cantact Page. <p/>");
-  //   res.end();
-  // } else if (req.url == "/about") {
-  //   res.writeHead(200, { "Content-Type": "application/json" });
-  //   res.write(
-  //     JSON.stringify({
-  //       course: "Complete web Development with Jhankar mahbub.",
-  //     })
-  //   );
-  //   res.end();
-  // }
+// const server = http.createServer((req, res) => {
+//   // res.end("Hello Node.JS");
+//   // if (req.url == "/") {
+//   //   res.writeHead(200, { "Content-Type": "text/html" });
+//   //   res.write("<p> This is Home Page. <p/>");
+//   //   res.end();
+//   // } else if (req.url == "/contact") {
+//   //   res.writeHead(200, { "Content-Type": "text/html" });
+//   //   res.write("<p> This is Cantact Page. <p/>");
+//   //   res.end();
+//   // } else if (req.url == "/about") {
+//   //   res.writeHead(200, { "Content-Type": "application/json" });
+//   //   res.write(
+//   //     JSON.stringify({
+//   //       course: "Complete web Development with Jhankar mahbub.",
+//   //     })
+//   //   );
+//   //   res.end();
+//   // }
 
-  // exploring url module
+//   // exploring url module
 
-  const address_url =
-    "http://localhost:5000/contact?name=mohon&country=bangladesh";
-  const parsed_url = url.parse(address_url, true);
-  const quearyObject = parsed_url.query;
-  // console.log(quearyObject);
+//   const address_url =
+//     "http://localhost:5000/contact?name=mohon&country=bangladesh";
+//   const parsed_url = url.parse(address_url, true);
+//   const quearyObject = parsed_url.query;
+//   // console.log(quearyObject);
 
-  // exploring file system module
-  if ((req.url = "/")) {
-    //asyncronouse readfile
-    // fs.readFile("data.txt", (error, data) => {
-    //   if (error) {
-    //     res.write("Failed to Read Data!!!");
-    //     res.end();
-    //   } else {
-    //     res.write(data);
-    //     res.end();
-    //   }
-    // });
+//   // exploring file system module
+//   if ((req.url = "/")) {
+//     //asyncronouse readfile
+//     // fs.readFile("data.txt", (error, data) => {
+//     //   if (error) {
+//     //     res.write("Failed to Read Data!!!");
+//     //     res.end();
+//     //   } else {
+//     //     res.write(data);
+//     //     res.end();
+//     //   }
+//     // });
 
-    //syncronouse readfile
-    // const data = fs.readFileSync("data.txt");
-    // res.write(data);
-    // res.end();
+//     //syncronouse readfile
+//     // const data = fs.readFileSync("data.txt");
+//     // res.write(data);
+//     // res.end();
 
-    fs.writeFile("data.txt", "Hello node.js", (error) => {
-      if (error) {
-        res.write("Data failed to Write");
-        res.end();
-      } else {
-        res.write("data written successfully");
-        res.end();
-      }
-    });
-  }
-});
+//     fs.writeFile("data.txt", "Hello node.js", (error) => {
+//       if (error) {
+//         res.write("Data failed to Write");
+//         res.end();
+//       } else {
+//         res.write("data written successfully");
+//         res.end();
+//       }
+//     });
+//   }
+// });
 
-const PORT = 5000;
-server.listen(PORT);
-console.log(`Server is Runnging at ${PORT}`);
+// const PORT = 5000;
+// server.listen(PORT);
+// console.log(`Server is Runnging at ${PORT}`);
+
+// *** Elploring Events, Stream, Buffer
+
+// 1. Event
+const events = require("events");
+const eventEmitter = new events.EventEmitter();
+
+// creating an event handler
+const chitkarDibo = () => {
+  console.log("Oi beta koi tui????? ami darai asi!!!");
+};
+
+//assign the handlr into an event
+eventEmitter.on("scream", chitkarDibo).chitkarDibo;
+
+//firing the event
+eventEmitter.emit("scream");
